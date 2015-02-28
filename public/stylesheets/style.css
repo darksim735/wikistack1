@@ -1,8 +1,40 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 50px;
+}
+
+.nav-pills {
+  background-color: #428bca;
+}
+
+.nav-pills a {
+  color: #fff;
+}
+
+.nav-pills>li.active>a {
+  background-color: #428bca;
+}
+
+.nav-pills > li > a:hover {
+  background-color: #c5b358;
+}
+
+#page-content {
+  height: auto;
+
+}
+
+/*color button*/
+.btn-default {
+  background-color: #407eee;
+  color: #fff;
 }

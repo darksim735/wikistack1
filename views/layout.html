@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>{% block title %}WikiStack{% endblock %}</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="/">Wikistack</a></li>
+      <li role="presentation"><a href="/addPage">Add Page</a></li>
+      <li role="presentation"><a href="/about_us">About Us</a></li>
+    </ul>
+    <!-- {% block nav %}
+    
+    {% endblock %} -->
+
+    {% block content %}
+
+    {% endblock %}
   </body>
 </html>
