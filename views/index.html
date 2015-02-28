@@ -3,6 +3,8 @@
 {% block content %}
     <h1>Browse my {{title}}</h1>
     <ul>
-      <li>List of Wikistack pages</li>
+      {% for doc in docs %}
+        <li><a href='/{{doc.url_name}}'>{{doc.title}}</a></li>
+      {% endfor %}
     </ul>
 {% endblock %}
