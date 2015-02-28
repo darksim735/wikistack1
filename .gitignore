@@ -1,7 +1,2 @@
-#Ignore specific files
-.DS_Store
-npm-debug.log
-
-#Ignore directories
-node_modules/**/*
-
+node_modules
+package.json
