@@ -4,5 +4,5 @@
 
 {% block content %}
   <div class="page-header"><h1>{{doc.title}}</h1></div>
-  <p>{{doc.body}}</p>
+  <p>{{doc.body|marked}}</p>
 {% endblock %}

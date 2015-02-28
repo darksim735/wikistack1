@@ -1,3 +1,5 @@
+var markMaker = require('marked');
+
 module.exports = function(swig) {
   var page_link = function (doc) {
     var link_name;
@@ -8,7 +10,14 @@ module.exports = function(swig) {
     }
     return "<a href='"+doc.full_route+"'>"+link_name+"</a>";
   };
+
+  var marked = function (body) {
+    return markMaker(body);
+  };
+
   page_link.safe = true;
+  marked.safe = true; 
 
   swig.setFilter('page_link', page_link);
+  swig.setFilter('marked', marked);
 };

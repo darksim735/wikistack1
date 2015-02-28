@@ -12,6 +12,8 @@ var users = require('./routes/users');
 var add_routes = require('./routes/add');
 var showPost = require('./routes/showPost');
 
+var dbg = require('./debug');
+
 var app = express();
 
 app.engine('html', swig.renderFile);
@@ -28,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', dbg, routes);
 app.use('/users', users);
 app.use('/addPage', add_routes);
 app.use('/wiki', showPost);
@@ -64,6 +66,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
