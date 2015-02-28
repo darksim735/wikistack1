@@ -16,6 +16,7 @@ router.post('/submit', function(req, res, next) {
   // add defs of title body and url_name w body parser
   var title = req.body.title;
   var body = req.body.content;
+  
   var url_name = fixedEncodeURIComponent(title);
 
   function fixedEncodeURIComponent (str) {
