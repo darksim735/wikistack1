@@ -5,4 +5,5 @@
 {% block content %}
   <div class="page-header"><h1>{{doc.title}}</h1></div>
   <p>{{doc.body|marked}}</p>
+  <a class="btn btn-default" href="/wiki/{{doc.url_name}}/editPage">Edit Page</a>
 {% endblock %}

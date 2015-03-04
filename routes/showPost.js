@@ -13,6 +13,33 @@ router.get('/:url', function (req, res) {
   })
 })
 
+router.get('/:url/editPage', function(req, res, next) {
+  var urlName = encodeURIComponent(req.params.url).replace(/[!'()*]/g, function(c) {
+      return '%' + c.charCodeAt(0).toString(16);
+    });
+  // url not matching (spaces)
+  db.Page.findOne({'url_name': urlName}, function (err, page) {
+    res.render('editPage', {doc: page});
+  })
+});
+
+router.post('/:url/editPage/submit', function(req, res, next) {
+  // if doc has _id 
+  var models = require('../models/');
+  var title = req.body.title;
+  var body = req.body.content;
+  var urlName = encodeURIComponent(title).replace(/[!'()*]/g, function(c) {
+      return '%' + c.charCodeAt(0).toString(16);
+    });
+
+  db.Page.findOneAndUpdate({'title': title}, {body: body, url_name: urlName}, {multi: true, upsert: true}, function (err, doc) {
+    res.redirect('/wiki/'+urlName);
+  })
+
+});
+
+module.exports = router;
+
 // previous slow implementation
 // db.Page.find(function (err, pages) {
 //   if (err) throw err;
@@ -25,5 +52,3 @@ router.get('/:url', function (req, res) {
 //     );
 //   })
 // });
-
-module.exports = router;
