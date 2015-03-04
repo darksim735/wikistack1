@@ -6,4 +6,7 @@
   <div class="page-header"><h1>{{doc.title}}</h1></div>
   <p>{{doc.body|marked}}</p>
   <a class="btn btn-default" href="/wiki/{{doc.url_name}}/editPage">Edit Page</a>
+  <!-- delete - make it small form - not a URL  -->
+  <form method="POST" action="/wiki/{{doc.url_name}}/deletePage"><input type="submit" class="btn btn-danger" value="Delete"></input></form>
+  <!-- <a class="btn btn-danger" href="/wiki/{{doc.url_name}}/deletePage">Delete Page</a> -->
 {% endblock %}
